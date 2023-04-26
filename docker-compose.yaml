@@ -11,8 +11,8 @@ services:
     image: mysql:latest
     environment:
       - MYSQL_DATABASE=php_docker
-      - MYSQL_USER=php_docker
-      - MYSQL_PASSWORD=password
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
