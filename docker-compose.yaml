@@ -7,18 +7,18 @@ services:
     ports:
       - 80:80
       - 443:443 # for future ssl traffic
-  db:
-    image: mysql:latest
+  database:
+    image: 'mysql:latest'
     environment:
-      - MYSQL_DATABASE=php_docker
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=root
-      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+      MYSQL_ROOT_PASSWORD: easy123
+      MYSQL_DATABASE: main
+    ports:
+      - '3306:3306'
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
       - 8001:80
     environment:
-      - PMA_HOST=db
+      - PMA_HOST=database
       - PMA_PORT=3306
 
