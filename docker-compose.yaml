@@ -11,7 +11,9 @@ services:
     image: 'mysql:latest'
     environment:
       MYSQL_ROOT_PASSWORD: easy123
-      MYSQL_DATABASE: main
+      MYSQL_DATABASE: parkhaus
+    volumes:
+      - dbdata:/var/lib/mysql
     ports:
       - '3306:3306'
   phpmyadmin:
@@ -21,4 +23,5 @@ services:
     environment:
       - PMA_HOST=database
       - PMA_PORT=3306
-
+volumes:
+  dbdata:
