@@ -23,6 +23,8 @@ class ParkhausController extends AbstractController
 
         $results = $this->connection->executeQuery($query)->fetchAll();
 
+        dd($results);
+
         return $this->render('pages/home.html.twig');
     }
 }
