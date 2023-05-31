@@ -4,7 +4,7 @@
 <html>
 <head>
     <script src="https://kit.fontawesome.com/60f1874be9.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="assets/styles/login.css">
     <title>Car Park Homepage</title>
 </head>
 <body>
