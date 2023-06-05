@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div style="text-align: center;">
+            <h1 style="color: green;">{{ price }} €</h1>
+            <form action="{{ path('payment_route') }}" method="POST">
+                <input type="hidden" name="price" value="{{ price }}">
+                <button type="submit">Bezahlen</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

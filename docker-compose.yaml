@@ -1,23 +1,30 @@
-version: '3' # docker version
+version: '3'
+
 services:
   www:
-    image: php:apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
-      - "./:/var/www/html" # sync project dir with container web dir
+      - "./:/var/www/html"
     ports:
       - 80:80
-      - 443:443 # for future ssl traffic
+      - 443:443
+    networks:
+      - parkhaus_network
+
   database:
     image: 'mysql:latest'
     environment:
       MYSQL_ROOT_PASSWORD: easy123
-      MYSQL_DATABASE: main
+      MYSQL_DATABASE: parkhaus
+    volumes:
+      - dbdata:/var/lib/mysql
     ports:
-      # To allow the host machine to access the ports below, modify the lines below.
-      # For example, to allow the host to connect to port 3306 on the container, you would change
-      # "3306" to "3306:3306". Where the first port is exposed to the host and the second is the container port.
-      # See https://docs.docker.com/compose/compose-file/compose-file-v3/#ports for more information.
       - '3306'
+    networks:
+      - parkhaus_network
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
@@ -25,5 +32,12 @@ services:
     environment:
       - PMA_HOST=database
       - PMA_PORT=3306
+    networks:
+      - parkhaus_network
+
 volumes:
   dbdata:
+
+networks:
+  parkhaus_network:
+    driver: bridge

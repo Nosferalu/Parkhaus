@@ -1,17 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="sign">
-    <h1><span class="fast-flicker">Wel</span>come<span class="flicker"> to </span>Carpark !</h1>
-</div>
-<div class="wrapper">
-    <div class="container">
-        <i class="fas fa-smile-beam"></i>
-        <span class="num" data-val="340">000</span>
-        <span class="text">Current Free Spots</span>
+    <div class="sign">
+        <h1><span class="fast-flicker">Wel</span>come<span class="flicker"> to </span>Carpark !</h1>
     </div>
-</div>
+    <div class="wrapper">
+        <div class="container">
+            <i class="fas fa-smile-beam"></i>
+            <span class="num" data-val="{{ totalKapazitaet }}">{{ totalKapazitaet }}</span>
+            <span class="text">{{ totalKapazitaet < 4 ? 'belegt' : 'Current Free Spots' }}</span>
+        </div>
+    </div>
 
+    <form action="{{ path('security_logout') }}" method="post">
+        <button type="submit">Logout</button>
+    </form>
+
+    <div style="text-align: center;">
+        <form action="{{ path('check_in_route') }}" method="post" style="display: inline-block;">
+            <button type="submit">Check-In</button>
+        </form>
+        <form action="{{ path('check_out_route') }}" method="post" style="display: inline-block;">
+            <button type="submit">Check-Out</button>
+        </form>
+    </div>
 
     <script>
         let valueDisplays = document.querySelectorAll(".num");
@@ -24,11 +36,10 @@
             let counter = setInterval(function () {
                 startValue += 1;
                 valueDisplay.textContent = startValue;
-                if (startValue == endValue) {
+                if (startValue === endValue) {
                     clearInterval(counter);
                 }
             }, duration);
         });
     </script>
 {% endblock %}
-
