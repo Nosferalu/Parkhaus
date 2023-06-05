@@ -101,7 +101,7 @@ class ParkhausController extends AbstractController
 
             $parkplatzId = null;
 
-            // If the user is a Dauerparker, assign a Dauerparkplatz if available
+            // If the user is Dauerparker, assign a Dauerparkplatz if available
             if ($isDauerparker) {
                 foreach ($availableParkplaetze as $parkplatz) {
                     if ($parkplatz['parkplatz_id'] >= 1 && $parkplatz['parkplatz_id'] <= 40) {
