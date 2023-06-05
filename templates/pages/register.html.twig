@@ -1,29 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-        <h1 style="text-align: center;">Register</h1>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;">
+        <div>
+            <h1 style="text-align: center;">Register</h1>
 
-        <form action="{{ path('app_register') }}" method="post" style="text-align: center;">
-            <label for="vorname" style="color: white;">Vorname</label>
-            <input type="text" id="vorname" name="vorname" required>
-            <br>
-            <label for="nachname" style="color: white;">Nachname</label>
-            <input type="text" id="nachname" name="nachname" required>
-            <br>
-            <label for="email" style="color: white;">Email</label>
-            <input type="email" id="email" name="email" required>
-            <br>
-            <label for="password" style="color: white;">Password</label>
-            <input type="password" id="password" name="password" required>
-            <br>
-            <label for="kennzeichen" style="color: white;">Kennzeichen</label>
-            <input type="text" id="kennzeichen" name="kennzeichen" required>
-            <br>
-            <label for="dauerparker" style="color: white;">Dauerparker</label>
-            <input type="checkbox" id="dauerparker" name="dauerparker">
-            <br>
-            <button type="submit">Register</button>
-        </form>
+            <form action="{{ path('app_register') }}" method="post" style="text-align: center;">
+                <label for="vorname" style="color: white;">Vorname</label>
+                <input type="text" id="vorname" name="vorname" required>
+                <br>
+                <label for="nachname" style="color: white;">Nachname</label>
+                <input type="text" id="nachname" name="nachname" required>
+                <br>
+                <label for="email" style="color: white;">Email</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="password" style="color: white;">Password</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <label for="kennzeichen" style="color: white;">Kennzeichen</label>
+                <input type="text" id="kennzeichen" name="kennzeichen" required>
+                <br>
+                <label for="dauerparker" style="color: white;">Dauerparker</label>
+                <input type="checkbox" id="dauerparker" name="dauerparker">
+                <br>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <a href="{{ path('security_login') }}" style="color: white;">Already have an account? Login here</a>
+        </div>
     </div>
 {% endblock %}

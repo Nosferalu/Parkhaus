@@ -22,6 +22,10 @@ class ParkhausController extends AbstractController
      * @Route("/", name="app_homepage")
      * @IsGranted("ROLE_USER")
      */
+    /**
+     * @Route("/", name="app_homepage")
+     * @IsGranted("ROLE_USER")
+     */
     public function homepageShow(): Response
     {
         // Execute the SQL query to sum the kapazität where kapazität is not 0
@@ -34,8 +38,23 @@ class ParkhausController extends AbstractController
 
         $totalKapazitaet = $result['totalKapazitaet'];
 
+        // Check if the user is already checked in
+        $userId = $this->getUser()->getUserIdentifier();
+
+        $isCheckedIn = $this->connection->executeQuery('
+            SELECT COUNT(*) as count
+            FROM Fahrzeuge
+            WHERE kennzeichen IN (
+                SELECT fahrzeug_id
+                FROM Parker
+                WHERE email = ?
+            )
+            AND parkplatz_id IS NOT NULL
+        ', [$userId])->fetch()['count'] > 0;
+
         return $this->render('pages/home.html.twig', [
             'totalKapazitaet' => $totalKapazitaet,
+            'isCheckedIn' => $isCheckedIn,
         ]);
     }
 
