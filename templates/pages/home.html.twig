@@ -1,24 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="flex flex-col">
-        <div class="wrapper">
         <div class="sign">
             <h1><span class="fast-flicker">Wel</span>come<span class="flicker"> to </span>Carpark !</h1>
         </div>
+        <div class="wrapper">
             <div class="container">
                 <i class="fas fa-smile-beam"></i>
-                <span class="num" data-val="340">000</span>
-                <span class="text">Current Free Spots</span>
+                <span class="num" data-val="{{ totalKapazitaet }}">{{ totalKapazitaet }}</span>
+                <span class="text">{{ totalKapazitaet < 4 ? 'belegt' : 'Current Free Spots' }}</span>
             </div>
-            <button class='glowing-btn'><span class='glowing-txt'>CH<span class='faulty-letter'>ECK</span> IN</span>
-            </button>
-            <button class='glowing-btn'><span class='glowing-txt'>CH<span class='faulty-letter'>ECK</span> OUT</span>
-            </button>
+            <div style="text-align: center;">
+                {% if isCheckedIn %}
+                    <form action="{{ path('check_out_route') }}" method="post" style="display: inline-block;">
+
+                        <button type="submit" class='glowing-btn'><span class='glowing-txt'>Ch<span class='faulty-letter'>eck</span> out</span>
+                        </button>
+                    </form>
+                {% else %}
+                    <form action="{{ path('check_in_route') }}" method="post" style="display: inline-block;">
+                        <button type="submit" class='glowing-btn'><span class='glowing-txt'>Ch<span class='faulty-letter'>eck</span> in</span>
+                        </button>
+                    </form>
+                {% endif %}
+            </div>
         </div>
-        <div>
-        </div>
-    </div>
     <script>
         let valueDisplays = document.querySelectorAll(".num");
         let interval = 400;

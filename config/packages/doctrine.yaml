@@ -1,5 +1,6 @@
 doctrine:
     dbal:
+        server_version: '8'
         url: '%env(resolve:DATABASE_URL)%'
         user: root
         password: easy123

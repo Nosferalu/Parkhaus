@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="login-container">
+        <span class="login-box">
+            <div>
+                <h2>Register</h2>
+                <form action="{{ path('app_register') }}" method="post" style="text-align: center;">
+                    <div class="user-box">
+                        <input type="text" id="vorname" name="vorname" required>
+                        <label for="vorname"> Vorname</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="text" id="nachname" name="nachname" required>
+                        <label for="nachname">Nachname</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="password" id="password" name="password" required>
+                        <label for="password"" style="color: white;"">Password</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="text" id="kennzeichen" name="kennzeichen" required>
+                        <label for="kennzeichen">Kennzeichen</label>
+                    </div>
+                    <label class="text text-white" for="dauerparker">Dauerparker</label>
+                    <input type="checkbox" id="dauerparker" name="dauerparker">
+                    <div>
+                        <a href="#">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <button type="submit">
+                                Register
+                            </button>
+                        </a>
+                    </div>
+                </form>
+                <div style="margin-top: 20px;">
+                    <a href="{{ path('security_login') }}" style="color: white;">Already have an account? Login here</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}

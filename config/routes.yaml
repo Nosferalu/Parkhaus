@@ -3,3 +3,25 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: annotation
+
+security_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+    methods: [GET]
+
+security_logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
+
+security_login_submit:
+    path: /login
+    controller: App\Controller\SecurityController::authenticate
+    methods: [POST]
+
+register:
+    path: /register
+    controller: App\Controller\SecurityController::register
+
+home:
+    path: /
+    controller: App\Controller\ParkhausController::app_homepage

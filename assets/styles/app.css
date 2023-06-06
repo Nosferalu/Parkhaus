@@ -100,21 +100,15 @@ body {
 }
 
 .sign {
-    position: absolute;
-    display: flex;
     justify-content: center;
     align-items: start;
-    background-image: radial-gradient(
-            ellipse 50% 35% at 50% 20%,
-            #174c3f,
-            transparent
-    );
-    transform: translate(-50%, -370%);
+    margin: 1rem;
+    text-align: center;
     letter-spacing: 2;
     left: 50%;
     top: 50%;
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     color: #d6ffb9;
     text-shadow: 0 0 0.6rem #d6ffb9, 0 0 1.5rem #71a95a,
     -0.2rem 0.1rem 1rem #71a95a, 0.2rem 0.1rem 1rem #71a95a,
@@ -302,28 +296,16 @@ body {
     box-sizing: border-box;
 }
 
-html,
-body {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-}
 
-body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: black;
-}
 
 .glowing-btn {
     width: 200px;
     height: 50px;
+    text-align: center;
     position: relative;
     color: var(--glow-color);
     cursor: pointer;
-    padding: 0.35em 1em;
+    padding: 0.15em;
     border: 0.15em solid var(--glow-color);
     border-radius: 0.45em;
     background: none;
@@ -331,7 +313,7 @@ body {
     font-family: "Raleway", sans-serif;
     font-size: 1em;
     font-weight: 900;
-    letter-spacing: 1em;
+    letter-spacing: 0.5em;
 
     -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
     0px 0px 0.5em 0px var(--glow-color);
@@ -343,8 +325,6 @@ body {
 }
 
 .glowing-txt {
-    float: left;
-    margin-right: -0.8em;
     -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
     0 0 0.45em var(--glow-color);
     -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
@@ -513,4 +493,239 @@ body {
     .glowing-btn{
         font-size: 1em;
     }
+}
+
+.nav {
+    width:100%;
+    height:70px;
+    display:flex;
+    background:#151414;
+}
+.nav .link {
+    position:relative;
+    flex:1;
+    line-height:70px;
+    text-align:left;
+    width: 100px;
+    padding-left: 1.5rem;
+}
+.nav .link a {
+    position:relative;
+    color:#f5f5f5;
+    font-size:20px;
+    text-decoration:none;
+    z-index:2;
+}
+.nav .link:before {
+    content:"";
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:300px;
+    height:0%;
+    background: #2a9800;
+    z-index:-1;
+    transition:all 700ms ease-in-out;
+}
+.nav .link:after {
+    content:"";
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:300px;
+    height:0%;
+    background: #65db21;
+    transition:all 600ms ease-in-out;
+}
+.nav .link:hover {
+    cursor:pointer;
+}
+.nav .link:hover:before {
+    height:100%;
+    filter:blur(30px);
+}
+.nav .link:hover:after {
+    height:100%;
+}
+
+
+.login-box {
+    width: 400px;
+    padding: 40px;
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+.login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:active ~ label{
+    top: -20px;
+    left: 0;
+    color: #65db21;
+    font-size: 12px;
+}
+
+.login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem ;
+    color: #65db21;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px
+}
+
+.login-box a:hover {
+    background: #65db21;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #65db21,
+    0 0 25px #65db21,
+    0 0 50px #65db21,
+    0 0 100px #65db21;
+}
+
+.login-box a span {
+    position: absolute;
+    display: block;
+}
+
+.login-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #65db21);
+    animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+    50%,100% {
+        left: 100%;
+    }
+}
+
+.login-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #65db21);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+    50%,100% {
+        top: 100%;
+    }
+}
+
+.login-box a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #65db21);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+    0% {
+        right: -100%;
+    }
+    50%,100% {
+        right: 100%;
+    }
+}
+
+.login-box a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #65db21);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+    0% {
+        bottom: -100%;
+    }
+    50%,100% {
+        bottom: 100%;
+    }
+}
+
+.login-container{
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #141114;
+    background-image: linear-gradient(335deg, black 23px, transparent 23px),
+    linear-gradient(155deg, black 23px, transparent 23px),
+    linear-gradient(335deg, black 23px, transparent 23px),
+    linear-gradient(155deg, black 23px, transparent 23px);
+    background-size: 58px 58px;
+    background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+}
+input:active{
+   background-color: transparent;
+}
+input:focus{
+   background-color: transparent;
+}
+input:autofill, input:-webkit-autofill, input:-internal-autofill-selected {
+    background-color: transparent !important;
 }
