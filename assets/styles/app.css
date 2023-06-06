@@ -720,12 +720,38 @@ body {
     background-size: 58px 58px;
     background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
 }
-input:active{
-   background-color: transparent;
-}
-input:focus{
-   background-color: transparent;
-}
-input:autofill, input:-webkit-autofill, input:-internal-autofill-selected {
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill:focus {
     background-color: transparent !important;
+}
+
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    background-color: transparent !important;
+}
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+    color: #000; /* Adjust the color as per your preference */
+    opacity: 1; /* Ensures the placeholder is fully visible */
+}
+
+input,
+textarea,
+select {
+    background-color: transparent;
+}
+input:-webkit-autofill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    pointer-events: none; /* Allows clicking through the overlay */
 }
