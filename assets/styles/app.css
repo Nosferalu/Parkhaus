@@ -12,15 +12,14 @@
 
 .wrapper {
     position: absolute;
-    width: 80vw;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    display: flex;
     justify-content: space-around;
     gap: 10px;
 }
 .container {
+    margin: 2rem;
     width: 28vmin;
     height: 28vmin;
     display: flex;

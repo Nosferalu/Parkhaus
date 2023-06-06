@@ -1,19 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div>
-<div class="sign">
-    <h1><span class="fast-flicker">Wel</span>come<span class="flicker"> to </span>Carpark !</h1>
-</div>
-<div class="wrapper">
-    <div class="container">
-        <i class="fas fa-smile-beam"></i>
-        <span class="num" data-val="340">000</span>
-        <span class="text">Current Free Spots</span>
+    <div class="flex flex-col">
+        <div class="wrapper">
+        <div class="sign">
+            <h1><span class="fast-flicker">Wel</span>come<span class="flicker"> to </span>Carpark !</h1>
+        </div>
+            <div class="container">
+                <i class="fas fa-smile-beam"></i>
+                <span class="num" data-val="340">000</span>
+                <span class="text">Current Free Spots</span>
+            </div>
+            <button class='glowing-btn'><span class='glowing-txt'>CH<span class='faulty-letter'>ECK</span> IN</span>
+            </button>
+            <button class='glowing-btn'><span class='glowing-txt'>CH<span class='faulty-letter'>ECK</span> OUT</span>
+            </button>
+        </div>
+        <div>
+        </div>
     </div>
-    <button class='glowing-btn'><span class='glowing-txt'>CH<span class='faulty-letter'>ECK</span>IN</span></button>
-</div>
-</div>
     <script>
         let valueDisplays = document.querySelectorAll(".num");
         let interval = 400;
